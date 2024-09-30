@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "local": "vite --mode developer_local --port 8080 --host",
+    "dev": "vite --mode development --port 8080 --host",
+    "build:dev": "tsc -b && vite build --mode development",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "react": "^18.3.1",

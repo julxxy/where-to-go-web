@@ -21,8 +21,6 @@ export function encodeBase64(str: string, recursiveCount = 1, currentCount = 0) 
         return str
     }
     const utf8Bytes = new TextEncoder().encode(str)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     const base64String = btoa(String.fromCharCode(...utf8Bytes))
     return encodeBase64(base64String, recursiveCount, currentCount + 1)
 }
@@ -47,13 +45,18 @@ export function utf8Decode(utf8String: string) {
  * This function is used to convert a string or boolean value to boolean.
  */
 export function isTrue(value: unknown): boolean {
-    if (typeof value === 'string') {
-        return value.toLowerCase() === 'true'
-            || value.toLowerCase() === '1'
-            || value.toLowerCase() === 'on'
-            || value.toLowerCase() === 'yes'
+    if (typeof value === 'boolean') {
+        return value
     }
-    return Boolean(value).valueOf()
+    if (typeof value === 'string') {
+        return (
+            value.toLowerCase() === 'true' ||
+            value.toLowerCase() === '1' ||
+            value.toLowerCase() === 'on' ||
+            value.toLowerCase() === 'yes'
+        )
+    }
+    return false
 }
 
 /**

@@ -1,3 +1,16 @@
+# Where to Go Web
+
+The Web project for [Where-to-Go](https://github.com/Weasley-J/where-to-go). using React, Vite, and Ant Design.
+
+# Tech Stack Links
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [React](https://react.dev/reference/react/useActionState)
+- [React-router-dom](https://v5.reactrouter.com/web/guides/quick-start)
+- [Ant Design](https://ant.design/docs/react/introduce)
+- [Axios](https://axios-http.com/docs/intro)
+
 # Getting Started
 
 React + TypeScript + Vite: This template provides a minimal setup to get React working in Vite with HMR and some ESLint
