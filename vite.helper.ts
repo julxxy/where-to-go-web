@@ -76,6 +76,7 @@ export const APIs = (mode: string) => {
     })
 
     if (isDebugEnable && encodeByBase64) {
+        // eslint-disable-next-line no-console
         console.log(`Parsed APIs: ${apiUrls.map(api => api.url).join(', ')}\n`)
     }
 
