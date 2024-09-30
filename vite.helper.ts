@@ -49,11 +49,12 @@ export function isTrue(value: unknown): boolean {
         return value
     }
     if (typeof value === 'string') {
+        const lowerValue = value.toLowerCase()
         return (
-            value.toLowerCase() === 'true' ||
-            value.toLowerCase() === '1' ||
-            value.toLowerCase() === 'on' ||
-            value.toLowerCase() === 'yes'
+            lowerValue === 'true' ||
+            lowerValue === '1' ||
+            lowerValue === 'on' ||
+            lowerValue === 'yes'
         )
     }
     return false
