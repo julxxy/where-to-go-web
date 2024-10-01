@@ -4,11 +4,7 @@
     /* Allow implicit any type */
     "noImplicitAny": false,
     "useDefineForClassFields": true,
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "allowJs": true,
     "module": "ESNext",
     "skipLibCheck": true,
@@ -27,12 +23,9 @@
     "baseUrl": "./",
     "paths": {
       /* Allow absolute imports */
-      "@/*": [
-        "src/*"
-      ]
-    }
+      "@/*": ["src/*"]
+    },
+    "types": ["@modyfi/vite-plugin-yaml/modules"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

@@ -6,20 +6,13 @@
  * @returns True if the value represents a truthy state, false otherwise.
  */
 function isTrue(value: unknown): boolean {
-    if (typeof value === 'boolean') {
-        return value
-    }
-    if (typeof value === 'string') {
-        const lowerValue = value.toLowerCase()
-        return (
-            lowerValue === 'true' ||
-            lowerValue === '1' ||
-            lowerValue === 'on' ||
-            lowerValue === 'yes'
-        )
-    }
-    return false
+  if (typeof value === 'boolean') return value
+  if (typeof value === 'string') {
+    const lowerValue = value.toLowerCase()
+    return ['true', '1', 'on', 'yes'].includes(lowerValue)
+  }
+  return false
 }
 
 export default isTrue
-export const isFalse = (value: unknown): boolean => !isTrue(value)
+export const isFalse = (value: boolean | string | number): boolean => !isTrue(value)
