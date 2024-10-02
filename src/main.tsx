@@ -6,13 +6,12 @@ import './index.css'
 const root = createRoot(document.getElementById('root')!)
 const mode = import.meta.env.MODE
 
-const appElement =
-  ['production', 'development'].includes(mode) ? (
-    <StrictMode>
-      <App />
-    </StrictMode>
-  ) : (
+const appElement = ['production', 'development'].includes(mode) ? (
+  <StrictMode>
     <App />
-  )
+  </StrictMode>
+) : (
+  <App />
+)
 
 root.render(appElement)

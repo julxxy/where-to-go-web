@@ -3,8 +3,8 @@ import { loadEnv } from 'vite'
 /**
  * Vite config helper functions
  */
-
 export const base64Utils = {
+  defaultRecursiveCount: 15,
   isBase64(str: string): boolean {
     const base64Regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/
     if (!base64Regex.test(str)) return false
@@ -23,19 +23,24 @@ export const base64Utils = {
     return this.encodeBase64(base64String, recursiveCount, currentCount + 1)
   },
 
-  decodeBase64(encodedStr: string): string {
-    let decode = encodedStr
-    if (this.isBase64(decode)) {
-      decode = this.utf8Decode(decode)
-      decode = atob(decode)
-      return this.decodeBase64(decode)
+  decodeBase64(encodedStr: string, recursiveCount = 1, currentCount = 0): string {
+    if (currentCount >= recursiveCount) return encodedStr
+
+    if (this.isBase64(encodedStr)) {
+      try {
+        const decoded = atob(encodedStr)
+        const utf8Decoded = this.utf8Decode(decoded)
+        return this.decodeBase64(utf8Decoded, recursiveCount, currentCount + 1)
+      } catch {
+        return encodedStr
+      }
     } else {
-      return decode
+      return encodedStr
     }
   },
 
   utf8Decode(utf8String: string): string {
-    const bytes = new Uint8Array(utf8String.split('').map(char => char.charCodeAt(0)))
+    const bytes = new Uint8Array([...utf8String].map(char => char.charCodeAt(0)))
     return new TextDecoder().decode(bytes)
   },
 }
@@ -64,7 +69,7 @@ export const APIs = (mode: string) => {
   apiUrls.forEach(api => {
     if (base64Utils.isBase64(api.url)) {
       encodeByBase64 = true
-      api.url = base64Utils.decodeBase64(api.url)
+      api.url = base64Utils.decodeBase64(api.url, 20)
     }
   })
 
