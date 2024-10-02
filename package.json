@@ -10,7 +10,7 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier . --write"
+    "format": "npx prettier . --write"
   },
   "dependencies": {
     "react": "^18.3.1",
