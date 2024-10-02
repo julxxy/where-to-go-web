@@ -7,7 +7,7 @@ const root = createRoot(document.getElementById('root')!)
 const mode = import.meta.env.MODE
 
 const appElement =
-  mode === 'production' || mode.includes('dev') ? (
+  ['production', 'development'].includes(mode) ? (
     <StrictMode>
       <App />
     </StrictMode>
