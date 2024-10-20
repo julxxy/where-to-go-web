@@ -1,12 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import App from '@/App.tsx'
+import '@/index.css'
+import { Environment } from '@/types/appEnum.ts'
 
 const root = createRoot(document.getElementById('root')!)
-const mode = import.meta.env.MODE
 
-const appElement = ['production', 'development'].includes(mode) ? (
+const appElement = Environment.isProduction() ? (
   <StrictMode>
     <App />
   </StrictMode>

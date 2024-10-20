@@ -24,8 +24,7 @@
     "paths": {
       /* Allow absolute imports */
       "@/*": ["src/*"]
-    },
-    "types": ["@modyfi/vite-plugin-yaml/modules"]
+    }
   },
   "include": ["src"]
 }

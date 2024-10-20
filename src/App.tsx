@@ -20,19 +20,23 @@ function App() {
   }
 
   return (
-    <div style={{ backgroundColor: 'var(--color-bg-primary)', display: 'flex', flex: 1 }}>
-      <Switch
-        checkedChildren={<SunIcon />}
-        unCheckedChildren={<MoonIcon />}
-        checked={!isDarkEnable}
-        onChange={setIsDarkEnable}
-        style={{ backgroundColor: isDarkEnable ? '#676767' : '#ffffff' }}
-      />
-      <ul>
-        {robots.map(({ id, name, email }) => (
-          <Robot id={id} name={name} email={email} key={id} />
-        ))}
-      </ul>
+    <div style={{ backgroundColor: 'var(--color-bg-primary)', display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: 'flex' }}>
+        <Switch
+          checkedChildren={<SunIcon />}
+          unCheckedChildren={<MoonIcon />}
+          checked={!isDarkEnable}
+          onChange={setIsDarkEnable}
+          style={{ backgroundColor: isDarkEnable ? '#676767' : '#ffffff' }}
+        />
+      </div>
+      <div style={{ display: 'flex' }}>
+        <ul>
+          {robots.map(({ id, name, email }) => (
+            <Robot id={id} name={name} email={email} key={id} />
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
