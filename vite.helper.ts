@@ -1,35 +1,38 @@
 import { loadEnv } from 'vite'
+import { isTrue } from './src/common/booleanUtils.ts'
 import { base64Utils } from './src/common/base64Utils.ts'
 
 /**
  * Vite config helper functions
  */
 
-export const booleanUtils = {
-  isTrue(value: unknown): boolean {
-    if (typeof value === 'boolean') return value
-    if (typeof value === 'string') {
-      const lowerValue = value.toLowerCase()
-      return ['true', '1', 'on', 'yes'].includes(lowerValue)
-    }
-    return false
-  },
+export function optimizeChunks(id: string): string | undefined {
+  if (id && id.includes('node_modules')) {
+    // Split large libraries into separate chunks
+    if (id.includes('echarts')) return 'echarts'
+    if (id.includes('antd')) return 'antd'
+    if (id.includes('react')) return 'react'
+    if (id.includes('axios')) return 'axios'
+    // Default case: other node_modules chunks
+    const packages = id.toString().split('node_modules/')[1]?.split('/')
+    return packages && packages.length > 1 ? `${packages[0]}-${packages[1]}` : packages[0]
+  }
 }
 
 /**
- * APIs 配置
+ * API 配置
  */
-export const APIs = (mode: string) => {
+export const API = (mode: string) => {
   const env = loadEnv(mode, process.cwd(), '')
-  const isDebugEnable = booleanUtils.isTrue(env.VITE_IS_DEBUG_ENABLE)
 
+  const isDebugEnable = isTrue(env.VITE_IS_DEBUG_ENABLE)
   const apiUrls = [{ key: 'apiUrl', url: env.VITE_API_URL }]
   let encodeByBase64 = false
 
   apiUrls.forEach(api => {
     if (base64Utils.isBase64(api.url)) {
       encodeByBase64 = true
-      api.url = base64Utils.decodeBase64(api.url, 20)
+      api.url = base64Utils.decode(api.url, 20)
     }
   })
 
@@ -39,6 +42,7 @@ export const APIs = (mode: string) => {
   }
 
   return {
+    env,
     isDebugEnable,
     hosts: Object.fromEntries(apiUrls.map(api => [api.key, api.url])),
   }
