@@ -1,6 +1,6 @@
 import '@/App.css'
-
-import robots from './mockdata/robots.json'
+import styles from '@/components/Robot.module.css'
+import robots from '@/mockdata/robots.json'
 import Robot from '@/components/Robot.tsx'
 import { Switch } from 'antd'
 import useZustandStore from '@/store/useZustandStore.ts'
@@ -20,8 +20,8 @@ function App() {
   }
 
   return (
-    <div style={{ backgroundColor: 'var(--color-bg-primary)', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ display: 'flex', flex: '1' }}>
         <Switch
           checkedChildren={<SunIcon />}
           unCheckedChildren={<MoonIcon />}
@@ -30,7 +30,7 @@ function App() {
           style={{ backgroundColor: isDarkEnable ? '#676767' : '#ffffff' }}
         />
       </div>
-      <div style={{ display: 'flex' }}>
+      <div className={styles.cardContainer} style={{ display: 'flex', flex: '1' }}>
         <ul>
           {robots.map(({ id, name, email }) => (
             <Robot id={id} name={name} email={email} key={id} />
