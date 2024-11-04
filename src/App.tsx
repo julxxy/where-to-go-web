@@ -3,11 +3,12 @@ import styles from '@/components/Robot.module.css'
 import robots from '@/mockdata/robots.json'
 import Robot from '@/components/Robot.tsx'
 import ThemeSwitch from '@/components/theme'
+import { ShoppingCart } from '@/components/ShopingCart.tsx'
 
 function App() {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <div style={{ display: 'flex', flex: '1' }}>
+    <div style={{}}>
+      <div style={{}}>
         <ThemeSwitch />
       </div>
       <div className={styles.cardContainer} style={{ display: 'flex', flex: '1' }}>
@@ -17,6 +18,7 @@ function App() {
           ))}
         </ul>
       </div>
+      <ShoppingCart />
     </div>
   )
 }

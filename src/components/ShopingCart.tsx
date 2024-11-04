@@ -21,7 +21,9 @@ export class ShoppingCart extends React.Component<Props, State> {
           onClick={() => {
             this.setState({ isCartOpen: !this.state.isCartOpen })
           }}
-        />
+        >
+          购物车
+        </button>
       </div>
     )
   }
