@@ -1,23 +1,32 @@
 import '@/App.css'
-import styles from '@/components/Robot.module.css'
-import robots from '@/mockdata/robots.json'
-import Robot from '@/components/Robot.tsx'
-import ThemeSwitch from '@/components/theme'
+import NavFooter from '@/components/NavFooter'
+import NaviHeader from '@/components/NaviHeader'
+import AntdGlobalProvider, { useThemeToken } from '@/context/AntdGlobalProvider.ts'
+import { App as AntdApp, ConfigProvider, theme } from 'antd'
+import zhCN from 'antd/lib/locale/zh_CN'
+import enUS from 'antd/lib/locale/en_US'
+import useZustandStore from '@/store/useZustandStore.ts'
+import { Environment } from '@/types/appEnum.ts'
 
 function App() {
+  const { isDarkEnable } = useZustandStore()
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <div style={{ display: 'flex', flex: '1' }}>
-        <ThemeSwitch />
-      </div>
-      <div className={styles.cardContainer} style={{ display: 'flex', flex: '1' }}>
-        <ul>
-          {robots.map(({ id, name, email }) => (
-            <Robot id={id} name={name} email={email} key={id} />
-          ))}
-        </ul>
-      </div>
-    </div>
+    <ConfigProvider
+      theme={{
+        ...useThemeToken,
+        algorithm: isDarkEnable ? theme.darkAlgorithm : theme.defaultAlgorithm,
+      }}
+      locale={Environment.isLocaleCN ? zhCN : enUS}
+    >
+      <AntdApp>
+        <AntdGlobalProvider />
+        {/*<RouterProvider router={router} />*/}
+        <div className="app">
+          <NaviHeader />
+          <NavFooter />
+        </div>
+      </AntdApp>
+    </ConfigProvider>
   )
 }
 
