@@ -2,6 +2,10 @@
 
 The Web project for [Where-to-Go](https://github.com/Weasley-J/where-to-go). using React, Vite, and Ant Design.
 
+# GIF Preview
+
+![where-to-go-web-preview](resource/where-to-go-web-preview.gif)
+
 # Tech Stack Links
 
 - [TypeScript](https://www.typescriptlang.org/)
