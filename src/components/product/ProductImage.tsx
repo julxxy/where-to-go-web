@@ -14,9 +14,9 @@ export default function ProductImage({ id, size, imageSrc, price, title }: Props
   return (
     <>
       {size == 'large' ? (
-        <Image src={imageSrc} height={285} width={490} />
+        <Image src={imageSrc} height={240} width={415} style={{ borderRadius: 'var(--border-radius-default)' }} />
       ) : (
-        <Image src={imageSrc} height={120} width={240} />
+        <Image src={imageSrc} height={100} width={205} style={{ borderRadius: 'var(--border-radius-default)' }} />
       )}
       <div>
         <Typography.Text type="secondary">{title.slice(0, 25)}</Typography.Text>

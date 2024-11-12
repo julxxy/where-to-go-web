@@ -8,6 +8,7 @@ import { Environment } from '@/types/appEnum.ts'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { Content } from '@/components/Content'
+import { BusinessPartner } from '@/components/businessPartner/BusinessPartner.tsx'
 
 function App() {
   const { isDarkEnable } = useZustandStore()
@@ -25,6 +26,7 @@ function App() {
         <div className="app">
           <Header />
           <Content />
+          <BusinessPartner />
           <Footer />
         </div>
       </AntdApp>
