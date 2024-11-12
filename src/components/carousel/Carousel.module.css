@@ -1,0 +1,9 @@
+/* Carousel.module.css */
+.slider {
+  text-align: center;
+  height: 250px;
+  line-height: 250px;
+  background-color: var(--content-bg);
+  border-radius: var(--border-radius-default);
+  overflow: hidden;
+}

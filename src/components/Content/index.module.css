@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  margin: 20px auto 0 auto;
+  min-height: 70vh;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.sideMenu {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.carousel {
+  flex-direction: column;
+  width: 75%;
+}
+

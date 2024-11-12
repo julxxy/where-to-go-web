@@ -1,11 +1,12 @@
-import styles from '@/components/NaviHeader/idnex.module.css'
+import styles from '@/components/Header/idnex.module.css'
 import { Button, Dropdown, Input, Layout, Menu, Space, Typography } from 'antd'
 import { GlobalOutlined } from '@ant-design/icons'
 import ThemeSwitch from '@/components/theme'
 import ButtonGroup from 'antd/es/button/button-group'
 import logo from '@/assets/react.svg'
+import React from 'react'
 
-const NaviHeader = () => {
+export const Header: React.FC = () => {
   const title = import.meta.env.VITE_APP_TITLE as string
   return (
     <div className={styles.appHeader}>
@@ -42,30 +43,30 @@ const NaviHeader = () => {
         </Typography.Title>
         <Input.Search className={styles.searchInput} placeholder={'请输入旅游目的地、主题、或关键字'} />
       </Layout.Header>
-      <Menu
-        mode="horizontal"
-        className={styles.mainMenu}
-        items={[
-          { key: '1', label: '旅游首页' },
-          { key: '2', label: '周末游' },
-          { key: '3', label: '跟团游' },
-          { key: '4', label: '自由行' },
-          { key: '5', label: '私家团' },
-          { key: '6', label: '邮轮' },
-          { key: '7', label: '酒店+景点' },
-          { key: '8', label: '当地玩乐' },
-          { key: '9', label: '主题游' },
-          { key: '10', label: '定制游' },
-          { key: '11', label: '游学' },
-          { key: '12', label: '签证' },
-          { key: '13', label: '企业游' },
-          { key: '14', label: '高端游' },
-          { key: '15', label: '爱玩户外' },
-          { key: '16', label: '保险' },
-        ]}
-      />
+      <div className={styles.menu}>
+        <Menu
+          mode="horizontal"
+          className={styles.mainMenu}
+          items={[
+            { key: '1', label: '旅游首页' },
+            { key: '2', label: '周末游' },
+            { key: '3', label: '跟团游' },
+            { key: '4', label: '自由行' },
+            { key: '5', label: '私家团' },
+            { key: '6', label: '邮轮' },
+            { key: '7', label: '酒店+景点' },
+            { key: '8', label: '当地玩乐' },
+            { key: '9', label: '主题游' },
+            { key: '10', label: '定制游' },
+            { key: '11', label: '游学' },
+            { key: '12', label: '签证' },
+            { key: '13', label: '企业游' },
+            { key: '14', label: '高端游' },
+            { key: '15', label: '爱玩户外' },
+            { key: '16', label: '保险' },
+          ]}
+        />
+      </div>
     </div>
   )
 }
-
-export default NaviHeader

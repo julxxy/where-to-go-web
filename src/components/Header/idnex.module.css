@@ -45,11 +45,23 @@
   margin-left: 37px;
 }
 
-.mainMenu {
-  padding-left: 6%;
-  padding-right: 6%;
-  background-color: #1976d2;
-  color: #f5f5f5;
+.menu {
+  width: 100%;
+  padding: 0 6%;
+  background-color: var(--color-bg-main-menu);
+
+  .mainMenu {
+    background-color: var(--color-bg-main-menu);
+  }
+
+  :global(a) {
+    color: #ffffff;
+    text-decoration: none;
+
+    &:hover {
+      color: #4096ff;
+    }
+  }
 }
 
 .appLogo {

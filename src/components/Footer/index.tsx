@@ -1,9 +1,10 @@
-import styles from '@/components/NavFooter/index.module.css'
+import styles from '@/components/Footer/index.module.css'
+import React from 'react'
 
-const NavFooter = () => {
+export const Footer: React.FC = () => {
   const links = [
     {
-      label: '中国电子口岸一站式加签方案',
+      label: '中国电子口岸加签方案',
       href: 'https://github.com/Weasley-J/chinaport-data-signature',
     },
     {
@@ -39,5 +40,3 @@ const NavFooter = () => {
     </div>
   )
 }
-
-export default NavFooter

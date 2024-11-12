@@ -11,6 +11,7 @@
   --footer-text: #333333;
   /* Background colors */
   --color-bg-primary: rgb(0, 0, 0, 0.08); /* 浅蓝灰色 */
+  --color-bg-main-menu: #1976d2; /* 主菜单背景色 */
   /* Text colors */
   --color-text-primary: #000000; /* 默认文本颜色 */
   /* Primary colors */
@@ -39,6 +40,7 @@
   --footer-text: #bbbbbb;
   /* Background colors */
   --color-bg-primary: #181818;
+  --color-bg-main-menu: #1f1f1f; /* 主菜单背景色 */
   /* Text colors */
   --color-text-primary: #ffffff; /* 深色文本颜色 */
   /* Primary colors */
@@ -54,7 +56,4 @@
 /* App styles */
 .app {
   background-color: var(--color-bg-primary);
-}
-
-.appContent {
 }

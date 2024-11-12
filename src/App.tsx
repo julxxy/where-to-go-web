@@ -1,12 +1,13 @@
 import '@/App.css'
-import NavFooter from '@/components/NavFooter'
-import NaviHeader from '@/components/NaviHeader'
 import AntdGlobalProvider, { useThemeToken } from '@/context/AntdGlobalProvider.ts'
 import { App as AntdApp, ConfigProvider, theme } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 import enUS from 'antd/lib/locale/en_US'
 import useZustandStore from '@/store/useZustandStore.ts'
 import { Environment } from '@/types/appEnum.ts'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import { Content } from '@/components/Content'
 
 function App() {
   const { isDarkEnable } = useZustandStore()
@@ -22,8 +23,9 @@ function App() {
         <AntdGlobalProvider />
         {/*<RouterProvider router={router} />*/}
         <div className="app">
-          <NaviHeader />
-          <NavFooter />
+          <Header />
+          <Content />
+          <Footer />
         </div>
       </AntdApp>
     </ConfigProvider>

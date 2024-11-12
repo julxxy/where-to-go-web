@@ -1,0 +1,7 @@
+.sideMenu {
+  height: 250px;
+  width: 256px;
+  box-sizing: border-box;
+  border-radius: var(--border-radius-default);
+  border: 1px solid var(--border-default);
+}
