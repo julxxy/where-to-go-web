@@ -1,12 +1,11 @@
 .footer {
+  width: 100%;
   line-height: 25px;
   text-align: center;
   font-size: 12px;
-  margin: 5px 14px 14px 0;
   padding: 5px 0;
   color: #b0aeae;
   background-color: var(--footer-bg);
-  border-radius: var(--border-radius-default);
 
   :global(a) {
     color: #b0aeae;
