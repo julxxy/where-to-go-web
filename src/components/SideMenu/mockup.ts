@@ -1,6 +1,6 @@
 export const sideMenuList = [
   {
-    title: '主题旅游',
+    title: '主题游',
     subMenu: [
       {
         title: '爸妈游',
